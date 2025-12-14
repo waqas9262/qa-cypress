@@ -34,4 +34,30 @@ describe("Checkout Flow", () => {
     cy.get('[data-test="back-to-products"]').click();
     cy.url().should("include", "/inventory");
   });
+
+  it("shows error on checkout with missing info", () => {
+    cy.visit("https://www.saucedemo.com/");
+
+    const loginPage = new LoginPage();
+    loginPage.enterUsername("standard_user");
+    loginPage.enterPassword("secret_sauce");
+    loginPage.clickLogin();
+
+    const inventoryPage = new InventoryPage();
+    inventoryPage.addBackpack();
+    cy.get('[data-test="shopping-cart-link"]').click();
+
+    cy.get('[data-test="checkout"]').click();
+
+    // Intentionally leave First Name empty
+    cy.get('[data-test="lastName"]').type("Doe");
+    cy.get('[data-test="postalCode"]').type("12345");
+    cy.get('[data-test="continue"]').click();
+
+    // Assertion: Should show error
+    cy.get('[data-test="error"]').should(
+      "contain.text",
+      "Error: First Name is required"
+    );
+  });
 });
