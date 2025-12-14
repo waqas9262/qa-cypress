@@ -13,10 +13,12 @@ A Cypress automation framework covering login, cart, and checkout flows on Sauce
 ---
 
 ## Project Structure
+
+```text
 QA-CYPRESS/
 ├─ cypress/
 │  ├─ e2e/
-│  │  ├─ pages/                 # Page Objects
+│  │  ├─ pages/                 # Page Object Models
 │  │  ├─ cart.cy.js             # Test specs
 │  │  ├─ checkout.cy.js
 │  │  ├─ login_negative.cy.js
