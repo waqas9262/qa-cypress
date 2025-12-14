@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-14T15:09:55.223Z",
+    "end": "2025-12-14T15:09:57.613Z",
+    "duration": 2390,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b674c4f3-0051-490f-8c52-2811e8c65138",
+      "title": "",
+      "fullFile": "cypress/e2e/checkout.cy.js",
+      "file": "cypress/e2e/checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "46963464-4d90-4879-ab50-fa411a6ce91d",
+          "title": "Checkout Flow",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "completes checkout with fixture data",
+              "fullTitle": "Checkout Flow completes checkout with fixture data",
+              "timedOut": null,
+              "duration": 1880,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://www.saucedemo.com/\");\ncy.get('[data-test=\"username\"]').should(\"be.visible\");\nloginPage.enterUsername(\"standard_user\");\nloginPage.enterPassword(\"secret_sauce\");\nloginPage.clickLogin();\ncy.url().should(\"include\", \"/inventory\");\nconst inventoryPage = new _InventoryPage.default();\ninventoryPage.addBackpack();\ncy.get('[data-test=\"shopping-cart-link\"]').click();\ncy.url().should(\"include\", \"/cart\");\ncy.get('[data-test=\"checkout\"]').click();\ncy.fixture(\"checkout\").then(user => {\n  cy.get('[data-test=\"firstName\"]').type(user.firstName);\n  cy.get('[data-test=\"lastName\"]').type(user.lastName);\n  cy.get('[data-test=\"postalCode\"]').type(user.postalCode);\n});\ncy.get('[data-test=\"continue\"]').click();\ncy.get('[data-test=\"finish\"]').click();\ncy.get('[data-test=\"complete-header\"]').should(\"have.text\", \"Thank you for your order!\");\ncy.get('[data-test=\"back-to-products\"]').click();\ncy.url().should(\"include\", \"/inventory\");",
+              "err": {},
+              "uuid": "398df845-5f8d-41b8-89f5-1455ab0cdeaa",
+              "parentUUID": "46963464-4d90-4879-ab50-fa411a6ce91d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "398df845-5f8d-41b8-89f5-1455ab0cdeaa"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1880,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

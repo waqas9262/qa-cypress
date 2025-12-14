@@ -1,0 +1,279 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2025-12-14T15:09:52.722Z",
+    "end": "2025-12-14T15:10:01.514Z",
+    "duration": 8792
+  },
+  "results": [
+    {
+      "uuid": "b674c4f3-0051-490f-8c52-2811e8c65138",
+      "title": "",
+      "fullFile": "cypress/e2e/checkout.cy.js",
+      "file": "cypress/e2e/checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "46963464-4d90-4879-ab50-fa411a6ce91d",
+          "title": "Checkout Flow",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "completes checkout with fixture data",
+              "fullTitle": "Checkout Flow completes checkout with fixture data",
+              "timedOut": null,
+              "duration": 1880,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://www.saucedemo.com/\");\ncy.get('[data-test=\"username\"]').should(\"be.visible\");\nloginPage.enterUsername(\"standard_user\");\nloginPage.enterPassword(\"secret_sauce\");\nloginPage.clickLogin();\ncy.url().should(\"include\", \"/inventory\");\nconst inventoryPage = new _InventoryPage.default();\ninventoryPage.addBackpack();\ncy.get('[data-test=\"shopping-cart-link\"]').click();\ncy.url().should(\"include\", \"/cart\");\ncy.get('[data-test=\"checkout\"]').click();\ncy.fixture(\"checkout\").then(user => {\n  cy.get('[data-test=\"firstName\"]').type(user.firstName);\n  cy.get('[data-test=\"lastName\"]').type(user.lastName);\n  cy.get('[data-test=\"postalCode\"]').type(user.postalCode);\n});\ncy.get('[data-test=\"continue\"]').click();\ncy.get('[data-test=\"finish\"]').click();\ncy.get('[data-test=\"complete-header\"]').should(\"have.text\", \"Thank you for your order!\");\ncy.get('[data-test=\"back-to-products\"]').click();\ncy.url().should(\"include\", \"/inventory\");",
+              "err": {},
+              "uuid": "398df845-5f8d-41b8-89f5-1455ab0cdeaa",
+              "parentUUID": "46963464-4d90-4879-ab50-fa411a6ce91d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "398df845-5f8d-41b8-89f5-1455ab0cdeaa"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1880,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "e7e8e321-add2-4935-9ae0-d23b1ff0313a",
+      "title": "",
+      "fullFile": "cypress/e2e/login_negative.cy.js",
+      "file": "cypress/e2e/login_negative.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6a68bce0-828e-444c-9ac9-64adf9b0ab7b",
+          "title": "Login - Negative",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "shows error for invalid credentials",
+              "fullTitle": "Login - Negative shows error for invalid credentials",
+              "timedOut": null,
+              "duration": 876,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://www.saucedemo.com/\");\ncy.get('[data-test=\"username\"]').should('be.visible');\nloginPage.enterUsername('wrong_user');\nloginPage.enterPassword('wrong_password');\nloginPage.clickLogin();\ncy.get('[data-test=\"error\"]').should('be.visible').contains('Epic sadface');",
+              "err": {},
+              "uuid": "44ade301-19f1-4029-bfa5-a5b88069ca14",
+              "parentUUID": "6a68bce0-828e-444c-9ac9-64adf9b0ab7b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "44ade301-19f1-4029-bfa5-a5b88069ca14"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 876,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "5373e92b-65ab-4ad3-adf3-d3c3eb1cf037",
+      "title": "",
+      "fullFile": "cypress/e2e/login_positive.cy.js",
+      "file": "cypress/e2e/login_positive.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7477d929-1328-4d4d-a34e-0133f7613d80",
+          "title": "Login - Positive",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "logs in with valid credentials",
+              "fullTitle": "Login - Positive logs in with valid credentials",
+              "timedOut": null,
+              "duration": 882,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/');\ncy.get('[data-test=\"username\"]').should('be.visible');\nloginPage.enterUsername('standard_user');\nloginPage.enterPassword('secret_sauce');\nloginPage.clickLogin();\ncy.url().should('include', '/inventory');",
+              "err": {},
+              "uuid": "b7681bff-a1d3-47d8-86a3-f4827b38e9cc",
+              "parentUUID": "7477d929-1328-4d4d-a34e-0133f7613d80",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b7681bff-a1d3-47d8-86a3-f4827b38e9cc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 882,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "4ac3f9fd-bda0-4c49-8b9f-dff0c8d444b3",
+      "title": "",
+      "fullFile": "cypress/e2e/cart.cy.js",
+      "file": "cypress/e2e/cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "149bbc3b-8137-48ab-99e1-f84af15fae02",
+          "title": "Cart",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Adds an item to cart",
+              "fullTitle": "Cart Adds an item to cart",
+              "timedOut": null,
+              "duration": 1222,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://www.saucedemo.com/\");\ncy.get('[data-test=\"username\"]').should(\"be.visible\");\nloginPage.enterUsername(\"standard_user\");\nloginPage.enterPassword(\"secret_sauce\");\nloginPage.clickLogin();\ncy.url().should(\"include\", \"/inventory\");\ninventoryPage.addBackpack();\ninventoryPage.elements.cartBadge().should(\"have.text\", \"1\");",
+              "err": {},
+              "uuid": "a12bf03b-9e71-4cd7-8a15-1b62dfc5f327",
+              "parentUUID": "149bbc3b-8137-48ab-99e1-f84af15fae02",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a12bf03b-9e71-4cd7-8a15-1b62dfc5f327"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1222,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

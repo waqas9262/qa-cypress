@@ -1,0 +1,14 @@
+# Cypress / Node.js
+node_modules/
+cypress/screenshots/
+cypress/videos/
+.DS_Store
+
+# Logs and OS junk
+npm-debug.log
+yarn-error.log
+
+# Cypress reports
+cypress/reports/*.json
+cypress/reports/output.json
+cypress/reports/html/
