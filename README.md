@@ -4,6 +4,11 @@ A Cypress automation framework covering login, cart, and checkout flows on Sauce
 
 ---
 
+## Goal
+Demonstrate a production-ready Cypress automation framework using POM, reusable commands, smoke tests, and reporting.
+
+---
+
 ## Tech Stack
 - Cypress
 - JavaScript
@@ -63,3 +68,12 @@ Install dependencies:
 npm install
 npx cypress run
 npx cypress open
+
+## Smoke Tests
+Run only critical smoke tests:
+```bash
+npx cypress run --spec "**/*.smoke.cy.js"
+
+## Screenshots & Videos
+- Screenshots are captured automatically on test failure
+- Videos are recorded during headless runs
